@@ -82,7 +82,7 @@ impl State {
 
         let surface_caps = surface.get_capabilities(&adapter);
 
-        let surface_format = surface_caps
+        let mut surface_format = surface_caps
             .formats
             .iter()
             .copied()
@@ -91,12 +91,12 @@ impl State {
 
         let config = wgpu::SurfaceConfiguration {
             usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
-            format: surface_format,
+            format: surface_format.remove_srgb_suffix(),
             width: size.width,
             height: size.height,
             present_mode: surface_caps.present_modes[0],
             alpha_mode: surface_caps.alpha_modes[0],
-            view_formats: vec![],
+            view_formats: vec![surface_format.add_srgb_suffix()],
         };
 
         surface.configure(&device, &config);
@@ -275,7 +275,10 @@ impl State {
         let output = self.surface.get_current_texture()?;
         let view = output
             .texture
-            .create_view(&wgpu::TextureViewDescriptor::default());
+            .create_view(&wgpu::TextureViewDescriptor{
+                format: Some(self.config.format.add_srgb_suffix()),
+                ..Default::default()
+            });
 
         let mut encoder = self
             .device

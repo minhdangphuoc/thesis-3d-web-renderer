@@ -5,7 +5,7 @@
   "scripts": {
     "wasm:build": "cd ../engine/ && rustup default stable && rustup target add wasm32-unknown-unknown && set RUSTFLAGS=--cfg=web_sys_unstable_apis && wasm-pack --verbose build --target web",
     "dev": "next dev",
-    "build": " RUSTFLAGS=--cfg=web_sys_unstable_apis npm run wasm:build && npm install ../engine/pkg && next build",
+    "build": "npm run wasm:build && npm install ../engine/pkg && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,15 +15,16 @@
     "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "tailwindcss": "^3.4.3",
     "wasm-pack": "^0.12.1"
   },
   "devDependencies": {
-    "@types/node": "20.12.7",
-    "@types/react": "18.2.79",
-    "eslint": "^8",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.38",
     "webpack": "^4.29.4",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.0"
