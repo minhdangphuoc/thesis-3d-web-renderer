@@ -4,6 +4,14 @@ import { WasmCanvas } from "../components/WasmCanvas/WasmCanvas.js"
 import { TextFillInput } from "../components/TextInput/TextInput.js"
 const inter = Inter({ subsets: ["latin"] });
 
+// Print some useful link
+console.log("Useful links:");
+console.log("ScullCup: https://raw.githubusercontent.com/minhdangphuoc/model/main/ScullCup/scene.gltf");
+console.log("DamagedHelmet: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf");
+console.log("SciFiHelmet: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf");
+console.log("Avocado: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Avocado/glTF/Avocado.gltf");
+console.log("Duck: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf");
+
 export default function Home() {
   const [name, setName] = useState('');
   const [clicked, setButtonClick] = useState(false);
