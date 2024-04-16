@@ -213,7 +213,7 @@ impl CameraController {
                     }
                     MouseScrollDelta::PixelDelta(phys_pos) => {
                         // Handle pixel delta if needed
-                        camera.zoom(phys_pos.y as f32 );
+                        camera.zoom(phys_pos.y as f32 * 0.01);
                     }
                 }
                 true

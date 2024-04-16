@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { WasmCanvas } from "../components/WasmCanvas"
+import { WasmCanvas } from "../components/WasmCanvas/WasmCanvas.js"
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
