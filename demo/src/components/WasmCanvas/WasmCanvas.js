@@ -1,16 +1,17 @@
-"use client";
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import init, { start } from "../../../../engine/pkg/engine";
-export function WasmCanvas() {
+import init, { start, stop } from "../../../../engine/pkg/engine";
+import { Router } from "next/router";
+
+export function WasmCanvas({url, onClick, setButtonClick}) {
   const [loading, setLoading] = useState(false);
   const [started, setStarted] = useState(false);
   const [error, setError] = useState("");
   // const [wasm, setWasm] = useState();
 
-  const loadExample = async () => {
+  const loadExample = (url) => {
     setLoading(true);
-    init().then(()=> {
-      start("https://raw.githubusercontent.com/minhdangphuoc/glTF-Sample-Models/main/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf");
+    const startInit = async() => {await init().then(()=> {
+      start(url);
       setLoading(false);
       setStarted(true);
     }).catch((e)=>{
@@ -23,18 +24,22 @@ export function WasmCanvas() {
         setStarted(false);
       } 
 
-    })
+    })}
+    startInit();
   };
 
   useEffect(() => {
-    if (started === false) loadExample();
-  }, []);
+    if (onClick === true) {
+      console.log("Clicked");
+      loadExample(url);
+      setButtonClick(false);
+    }
+  }, [onClick]);
 
   return (
-    (started === true)?
     <div
       id="renderer-canvas"
       className="w-full	h-full block bg-black"
-    ></div>:<></>
+    ></div>
   );
 }
