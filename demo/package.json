@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "wasm:build": "cd ../engine/ && rustup target add wasm32-unknown-unknown && set RUSTFLAGS=--cfg=web_sys_unstable_apis && wasm-pack --verbose build --target web",
+    "wasm:build": "cd ../engine/ && rustup default stable && rustup target add wasm32-unknown-unknown && set RUSTFLAGS=--cfg=web_sys_unstable_apis && wasm-pack --verbose build --target web",
     "dev": "next dev",
     "build": "npm run wasm:build && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "demo": ".",
     "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "demo": "."
+    "wasm-pack": "^0.12.1"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
