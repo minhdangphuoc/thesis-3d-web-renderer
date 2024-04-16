@@ -2,3 +2,7 @@
 from = "/*"
 to = "/index.html"
 status = 200
+
+[functions]
+directory = "src/apis/wasm-view"
+included_files = ["src/apis/wasm-view**"]

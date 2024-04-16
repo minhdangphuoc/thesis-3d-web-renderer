@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import init, { start, stop } from "../../../../engine/pkg/engine";
+import init, { start, stop } from "../../apis/wasm-view/engine";
 import { Router } from "next/router";
 
 export function WasmCanvas({url, onClick, setButtonClick, started, setStarted}) {
