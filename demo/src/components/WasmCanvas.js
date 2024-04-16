@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import init, { start } from "../../../../engine/pkg/engine.js";
+import init, { start } from "../../../engine/pkg/engine.js";
 export default function WasmCanvas() {
   const [loading, setLoading] = useState(false);
   const [started, setStarted] = useState(false);
