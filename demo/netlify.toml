@@ -4,4 +4,6 @@ to = "/index.html"
 status = 200
 
 [functions]
+directory  = ["src/apis/wasm-view/"]
+node_bundler = "esbuild"
 included_files = ["src/apis/wasm-view/**"]
