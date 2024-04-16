@@ -5,7 +5,7 @@
   "scripts": {
     "wasm:build": "cd ../engine/ && rustup default stable && rustup target add wasm32-unknown-unknown && set RUSTFLAGS=--cfg=web_sys_unstable_apis && wasm-pack --verbose build --target web",
     "dev": "next dev",
-    "build": "npm run wasm:build && next build",
+    "build": " RUSTFLAGS=--cfg=web_sys_unstable_apis npm run wasm:build && next build",
     "start": "next start",
     "lint": "next lint"
   },
