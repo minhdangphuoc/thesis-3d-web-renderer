@@ -2,10 +2,11 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import init, { start, stop } from "../../../../engine/pkg/engine";
 import { Router } from "next/router";
 
-export function WasmCanvas({url, onClick, setButtonClick}) {
+export function WasmCanvas({url, onClick, setButtonClick, started, setStarted}) {
   const [loading, setLoading] = useState(false);
-  const [started, setStarted] = useState(false);
   const [error, setError] = useState("");
+  //const [started, setStarted] = useState(false);
+
   // const [wasm, setWasm] = useState();
 
   const loadExample = (url) => {
