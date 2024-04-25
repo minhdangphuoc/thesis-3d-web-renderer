@@ -4,13 +4,29 @@
 
 ## Prerequisites
 
+### Environment
+
+``` shell
+
+# In demo/package.json
+# Window
+"wasm:build":"cd ../engine/ && set RUSTFLAGS=--cfg=web_sys_unstable_apis ...",
+
+# Other OSs
+"wasm:build":"cd ../engine/ && RUSTFLAGS=--cfg=web_sys_unstable_apis ...",
+
+```
+
 ### Dependences
 
 ``` shell
-# Install Rust https://www.rust-lang.org/tools/install
+# Install Rust (www.rust-lang.org/tools/install)
 # Install wasm-pack
+## Linux and MacOS (rustwasm.github.io/wasm-pack/installer)
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-# Install NodeJS https://nodejs.org/en/download
+## All Platforms (requires Rust)
+cargo install wasm-pack
+# Install NodeJS (nodejs.org/en/download)
 ```
 
 ### Browsers
